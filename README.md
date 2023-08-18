@@ -14,7 +14,7 @@ A simple and intuitive shopping cart built with React. This project is designed 
 
 - [Vite](https://vitejs.dev/)
 - [React](https://reactjs.org/)
-- [React Router DOM](https://reactrouter.com/web/guides/quick-start)
+- [React Router DOM](https://reactrouter.com/en/6.15.0/start/overview)
 
 ## Getting Started
 
