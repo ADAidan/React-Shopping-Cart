@@ -8,6 +8,7 @@ A simple and intuitive shopping cart built with React. This project is designed 
 - Users can add items to the shopping cart
 - Responsive and user-friendly design
 - Utilizes modern React Hooks for efficient state management
+- Follows React best practices
 
 ## Technologies Used
 
