@@ -26,11 +26,11 @@ Make sure you have Node.js and npm installed on your local machine. Visit Node.j
 
 1. Clone the repository
 
-`git clone https://github.com/your-username/shopping-cart.git`
+`git clone https://github.com/ADAidan/React-Shopping-Cart.git`
 
 2. Navigate to the project directory
 
-`cd shopping-cart`
+`cd react-shopping-cart`
 
 3. Install the required dependencies
 
