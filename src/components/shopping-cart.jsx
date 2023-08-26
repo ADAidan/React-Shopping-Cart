@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ShoppingContext } from '../context/shopping-context.js'
-import '../App.css'
+import './shopping-cart.css'
 
 export default function ShoppingCart() {
     const [cartTotal, setCartTotal] = useState(0)
@@ -33,7 +33,7 @@ export default function ShoppingCart() {
     }, [cartItems])
 
     return (
-        <div>
+        <div className='main-container'>
             <h2>Shopping Cart</h2>
             <Link to='/'>Back Home</Link>
             <div className='cart-items'>

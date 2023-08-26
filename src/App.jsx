@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import NavBar from './components/navbar.jsx'
 import { ShoppingContext } from './context/shopping-context'
+import { ProductViewContext } from './context/product-view-context'
 import './App.css'
 
 function App() {
   const [products, setProducts] = useState([])
   const [cartCount, setCartCount] = useState(0)
   const [cartItems, setCartItems] = useState([])
+  const [view, setView] = useState('list');
 
   const API = 'https://fakestoreapi.com/products'
 
@@ -49,7 +51,7 @@ function App() {
     });
   };
 
-  const contextValue = {
+  const shoppingContextValue = {
     products,
     cartCount,
     setCartCount,
@@ -57,11 +59,20 @@ function App() {
     addToCart,
   }
 
+  const productViewContextValue = {
+    view,
+    setView,
+  }
+
   return (
-    <ShoppingContext.Provider value={contextValue}>
-      <NavBar/>
-      <Outlet/>
-    </ShoppingContext.Provider>
+    <div className='app-container'>
+      <ProductViewContext.Provider value={productViewContextValue}>
+        <ShoppingContext.Provider value={shoppingContextValue}>
+          <NavBar/>
+          <Outlet/>
+        </ShoppingContext.Provider>
+      </ProductViewContext.Provider>
+    </div>
   )
 }
 

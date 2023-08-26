@@ -1,10 +1,13 @@
 import React, { useContext, useReducer, useEffect, useRef } from 'react';
 import { ShoppingContext } from '../context/shopping-context.js';
+import { ProductViewContext } from '../context/product-view-context.js';
 import quantityReducer from '../reducers/quantity-reducer.js';
+import './product-listing.css';
 
 const ProductListing = ({ product }) => {
     const [state, dispatch] = useReducer(quantityReducer, { count: 1 });
     const { addToCart } = useContext(ShoppingContext);
+    const { view } = useContext(ProductViewContext);
 
     const increment = () => {
         dispatch({ type: 'increment_count' });
@@ -44,7 +47,11 @@ const ProductListing = ({ product }) => {
     };
 
     return (
-        <div className='product-card' key={product.id}>
+        <div className={`product-card ${
+            view == 'list' ?
+            'product-list-view' :
+            'product-module-view'
+        }`} key={product.id}>
             <div className='img-container'>
                 <img className='img' src={product.image} alt={product.title} />
             </div>

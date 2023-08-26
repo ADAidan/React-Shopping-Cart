@@ -1,0 +1,17 @@
+.cart-items {
+	margin: 1rem;
+}
+
+.cart-item {
+	display: grid;
+	grid-template-columns: 2fr 1fr .5fr;
+	align-items: center;
+}
+
+.item-title {
+	text-align: start;
+}
+
+.item-price {
+	text-align: end;
+}
