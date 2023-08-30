@@ -28,6 +28,10 @@ const ProductListing = ({ product }) => {
         }
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
     const handleChange = (e) => {
         const re = /^[0-9\b]+$/;
         if (e.target.value === '') {
@@ -57,11 +61,11 @@ const ProductListing = ({ product }) => {
                 <h3 className='title'>{product.title}</h3>
                 <p className='description'>{product.description}</p>
                 <h2>${product.price}</h2>
-                <div className='stepper-container'>
-                    <button className='decrement-button' onClick={decrement}>-</button>
-                    <input type='text' value={state.count} onChange={handleChange}/>
-                    <button className='increment-button' onClick={increment}>+</button>
-                </div>
+                <form className='stepper-container' onSubmit={handleSubmit}>
+                    <button className='decrement-button' onClick={decrement} aria-label='Decrease quantity'>-</button>
+                    <input type='text' value={state.count} onChange={handleChange} aria-label='Quantity'/>
+                    <button className='increment-button' onClick={increment} aria-label='Increase quantity'>+</button>
+                </form>
                 <button className='add-to-cart-button' onClick={handleClick}>Add to Cart</button>
             </div>
         </div>

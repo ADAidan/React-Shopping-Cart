@@ -20,15 +20,13 @@
 }
 
 .add-to-cart-button {
-    background-color: #FFF;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.3s ease-in-out;
 }
 
 .add-to-cart-button:hover {
-    background-color: var(--primary-color);
-    color: #FFF;
+    background-color: #FFF;
+    color: var(--primary-color);
     border: 1px solid var(--primary-color);
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.3s ease-in-out;
 }
