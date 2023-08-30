@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
     return (
-        <div>
+        <div className='error-page'>
             <h1>Oops, looks like this page does not exist.</h1>
             <Link to='/'>Click here to go back home!</Link>
         </div>

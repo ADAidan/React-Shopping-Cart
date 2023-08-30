@@ -7,7 +7,7 @@ import './navbar.css'
 
 export default function NavBar() {
     const { cartCount } = useContext(ShoppingContext)
-    console.log(cartCount)
+    
     return (
         <nav className='navbar'>
             <h2 className='title'>Shopping</h2>

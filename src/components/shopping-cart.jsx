@@ -6,30 +6,22 @@ import './shopping-cart.css'
 export default function ShoppingCart() {
     const [cartTotal, setCartTotal] = useState(0)
     const { cartItems } = useContext(ShoppingContext)
-    console.log(cartItems)
 
     useEffect(() => {
-        console.log('ShoppingCart component mounted')
         if (cartItems.length === 0) {
-            console.log('cart is empty')
             return
         }
-        console.log(cartItems)
     }, [])
 
     useEffect(() => {
-        console.log('cartItems updated')
         if (cartItems.length === 0) {
             return
         }
-        console.log(cartItems)
         let total = 0;
         for (let item of cartItems) {
             total += item.price * item.quantity;
         }
-        console.log(total)
         setCartTotal(total);
-        console.log(cartTotal)
     }, [cartItems])
 
     return (

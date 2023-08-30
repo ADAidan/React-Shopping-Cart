@@ -4,6 +4,12 @@
     }
 }
 
+@media (min-width: 0px) and (max-width: 767px) {
+    .main-container .module-view{
+        grid-template-columns: 1fr;
+    }
+}
+
 .products-container {
 	display: grid;
     grid-gap: 1rem;

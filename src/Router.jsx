@@ -14,7 +14,6 @@ import '@fontsource/roboto/700.css';
 import './index.css'
 
 const Router = () => {
-    const [isLoading, setIsLoading] = useState(false)
 
     const router = createBrowserRouter([
         {

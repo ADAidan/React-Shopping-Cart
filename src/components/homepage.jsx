@@ -13,10 +13,10 @@ const HomePage = () => {
         <div className='main-container'>
             <ToggleProductView />
             <div className={`products-container ${
-            view == 'list' ?
-            'list-view' :
-            'module-view'
-        }`}>
+                view == 'list' ?
+                'list-view' :
+                'module-view'
+            }`}>
                 {products.map((product) => (
                     <ProductListing key={product.id} product={product}/>
                 ))}

@@ -18,9 +18,7 @@ const ProductListing = ({ product }) => {
     };
 
     const handleClick = () => {
-        console.log('Clicked add to cart!')
         if (state.count === '') {
-            console.log('count is empty')
             dispatch({ type: 'reset_count' });
             return;
         } else {
@@ -58,13 +56,13 @@ const ProductListing = ({ product }) => {
             <div className='product-info-container'>
                 <h3 className='title'>{product.title}</h3>
                 <p className='description'>{product.description}</p>
-                <h4>${product.price}</h4>
-                <div className='count'>
-                    <button onClick={decrement}>-</button>
+                <h2>${product.price}</h2>
+                <div className='stepper-container'>
+                    <button className='decrement-button' onClick={decrement}>-</button>
                     <input type='text' value={state.count} onChange={handleChange}/>
-                    <button onClick={increment}>+</button>
+                    <button className='increment-button' onClick={increment}>+</button>
                 </div>
-                <button onClick={handleClick}>Add to Cart</button>
+                <button className='add-to-cart-button' onClick={handleClick}>Add to Cart</button>
             </div>
         </div>
     );

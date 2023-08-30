@@ -17,14 +17,12 @@ function App() {
     fetch(API)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setProducts(data)
       })
       .catch((err) => console.log(err))
   }, [API])
 
   const addToCart = (product, count) => {
-    console.log('adding to cart')
     setCartCount(prev => prev + count);
     const newItem = {
         id: product.id,
@@ -32,7 +30,6 @@ function App() {
         price: product.price,
         quantity: count,
     }
-    console.log(newItem)
     if (!cartItems.length) {
         setCartItems(prev => {
             return [...prev, newItem];
@@ -42,7 +39,6 @@ function App() {
     for (let item of cartItems) {
         if (item.id === newItem.id) {
             item.quantity += newItem.quantity;
-            console.log(cartItems)
             return;
         }
     };
