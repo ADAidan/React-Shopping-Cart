@@ -1,49 +1,49 @@
-import { useState, useEffect } from 'react'
-import { Outlet } from 'react-router-dom'
-import NavBar from './components/navbar.jsx'
-import { ShoppingContext } from './context/shopping-context'
-import { ProductViewContext } from './context/product-view-context'
-import './App.css'
+import { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/navbar.jsx";
+import { ShoppingContext } from "./context/shopping-context";
+import { ProductViewContext } from "./context/product-view-context";
+import "./App.css";
 
 function App() {
-  const [products, setProducts] = useState([])
-  const [cartCount, setCartCount] = useState(0)
-  const [cartItems, setCartItems] = useState([])
-  const [view, setView] = useState('list');
+  const [products, setProducts] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
+  const [view, setView] = useState("list");
 
-  const API = 'https://fakestoreapi.com/products'
+  const API = "https://fakestoreapi.com/products";
 
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data)
+        setProducts(data);
       })
-      .catch((err) => console.log(err))
-  }, [API])
+      .catch((err) => console.log(err));
+  }, [API]);
 
   const addToCart = (product, count) => {
-    setCartCount(prev => prev + count);
+    setCartCount((prev) => prev + count);
     const newItem = {
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        quantity: count,
-    }
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      quantity: count,
+    };
     if (!cartItems.length) {
-        setCartItems(prev => {
-            return [...prev, newItem];
-        });
-        return;
+      setCartItems((prev) => {
+        return [...prev, newItem];
+      });
+      return;
     }
     for (let item of cartItems) {
-        if (item.id === newItem.id) {
-            item.quantity += newItem.quantity;
-            return;
-        }
-    };
-    setCartItems(prev => {
-        return [...prev, newItem];
+      if (item.id === newItem.id) {
+        item.quantity += newItem.quantity;
+        return;
+      }
+    }
+    setCartItems((prev) => {
+      return [...prev, newItem];
     });
   };
 
@@ -53,23 +53,23 @@ function App() {
     setCartCount,
     cartItems,
     addToCart,
-  }
+  };
 
   const productViewContextValue = {
     view,
     setView,
-  }
+  };
 
   return (
-    <div className='app-container'>
+    <div className="app-container">
       <ProductViewContext.Provider value={productViewContextValue}>
         <ShoppingContext.Provider value={shoppingContextValue}>
-          <NavBar/>
-          <Outlet/>
+          <NavBar />
+          <Outlet />
         </ShoppingContext.Provider>
       </ProductViewContext.Provider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
